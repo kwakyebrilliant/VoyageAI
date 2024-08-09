@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:voyageai/components/no_bookmark.dart';
@@ -12,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // Simulate a list of bookmarks (empty or with items)
-  final List<String> bookmarks = []; // Replace with actual bookmark data
+  final List<String> bookmarks = ["Bookmark 1", "Bookmark 2"];
 
   @override
   Widget build(BuildContext context) {
@@ -75,38 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: bookmarks.isEmpty
                       ? const [NoBookmark()]
                       : [
-                          Container(
-                            padding: const EdgeInsets.all(20.0),
-                            height: 320.0,
-                            width: 320.0,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF494B45).withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Bookmarks:',
-                                  style: GoogleFonts.inter(
-                                    color: const Color(0xFFFFFFFF),
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18.0,
-                                  ),
-                                ),
-                                // Display bookmarks (this is a simple example)
-                                for (var bookmark in bookmarks)
-                                  Text(
-                                    bookmark,
-                                    style: GoogleFonts.inter(
-                                      color: const Color(0xFFFFFFFF),
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 14.0,
-                                    ),
-                                  ),
-                              ],
-                            ),
-                          ),
+                          BookmarkCardContainer(),
                         ],
                 ),
               ),
@@ -133,5 +104,78 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+}
+
+class BookmarkCardContainer extends StatelessWidget {
+  final Random random = Random();
+  @override
+  Widget build(BuildContext context) {
+    Color color = Color.fromARGB(
+      255,
+      random.nextInt(256),
+      random.nextInt(256),
+      random.nextInt(256),
+    );
+
+    return Row(
+      children: [
+        Container(
+          width: 50.0,
+          height: 220.0,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10.0),
+              bottomLeft: Radius.circular(10.0),
+            ),
+          ),
+          child: const Center(
+            child: Text('data'),
+          ),
+        ),
+        ClipPath(
+          clipper: BookmarkCardClipper(),
+          child: Container(
+            width: 320.0,
+            height: 220.0,
+            color: const Color(0xFFF6C00A),
+            child: Center(
+              child: Text(
+                'Bookmark',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class BookmarkCardClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    double cornerRadius = 20.0;
+    Path path = Path();
+    path.moveTo(0, cornerRadius);
+    path.quadraticBezierTo(0, 0, 0, 0);
+    path.lineTo(size.width - cornerRadius, 0);
+    path.quadraticBezierTo(size.width, 0, size.width, cornerRadius);
+    path.lineTo(size.width, size.height - cornerRadius * 3);
+    path.lineTo(size.width - cornerRadius * 3, size.height);
+    path.lineTo(0, size.height);
+    path.quadraticBezierTo(0, size.height, 0, size.height - cornerRadius);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
