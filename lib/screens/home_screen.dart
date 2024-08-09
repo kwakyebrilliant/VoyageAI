@@ -32,9 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
+      // Container for entire contents
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
+            // Background image here
             image: AssetImage(
               "assets/images/background.png",
             ),
