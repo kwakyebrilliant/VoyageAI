@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         // Column starts here
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // RichText in an align widget
             Align(
@@ -48,6 +48,53 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+              ),
+            ),
+
+            // Expanded here
+            Expanded(
+              // Padding at the top of the contents in the expanded
+              child: Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+
+                // Column starts here
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(20.0),
+                      height: 320.0,
+                      width: 320.0,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF494B45).withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'No planned travels yet...',
+                            style: GoogleFonts.inter(
+                              color: const Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18.0,
+                            ),
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            'Your smart travel companion all enhanced by AI',
+                            style: GoogleFonts.inter(
+                              color: const Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w300,
+                              fontSize: 14.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                // Column ends here
               ),
             ),
           ],
