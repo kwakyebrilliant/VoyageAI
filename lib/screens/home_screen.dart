@@ -134,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100.0),
           ),
-          onPressed: () {},
+          onPressed: widget.showPromptScreen,
           child: const Icon(
             Icons.mode_of_travel_outlined,
           ),
