@@ -32,96 +32,107 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
-      // Padding around contents
-      body: Padding(
-        padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              "assets/images/background.jpg",
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
 
-        // Column starts here
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // RichText in an align widget
-            Align(
-              alignment: Alignment.center,
+        // Padding around contents
+        child: Padding(
+          padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
 
-              // RichText for logo
-              child: RichText(
-                text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'voyage',
-                      style: GoogleFonts.roboto(
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.w800,
-                        color: const Color(0xFF000000),
+          // Column starts here
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // RichText in an align widget
+              Align(
+                alignment: Alignment.center,
+
+                // RichText for logo
+                child: RichText(
+                  text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'voyage',
+                        style: GoogleFonts.roboto(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.w800,
+                          color: const Color(0xFF000000),
+                        ),
                       ),
-                    ),
-                    TextSpan(
-                      text: 'ai',
-                      style: GoogleFonts.inter(
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.w800,
-                        color: const Color(0xFFF6C00A),
+                      TextSpan(
+                        text: 'ai',
+                        style: GoogleFonts.inter(
+                          fontSize: 28.0,
+                          fontWeight: FontWeight.w800,
+                          color: const Color(0xFFF6C00A),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              // Expanded here
+              Expanded(
+                // Column starts here
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(20.0),
+                      height: 320.0,
+                      width: 320.0,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF494B45).withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'No planned travels yet...',
+                            style: GoogleFonts.inter(
+                              color: const Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18.0,
+                            ),
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            'Your smart travel companion all enhanced by AI',
+                            style: GoogleFonts.inter(
+                              color: const Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w300,
+                              fontSize: 14.0,
+                            ),
+                          ),
+
+                          // Display the selected GIF here
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: Image.asset(
+                              selectedGif,
+                              height: 180.0,
+                              width: 180.0,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-
-            // Expanded here
-            Expanded(
-              // Column starts here
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(20.0),
-                    height: 320.0,
-                    width: 320.0,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF494B45).withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'No planned travels yet...',
-                          style: GoogleFonts.inter(
-                            color: const Color(0xFFFFFFFF),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        Text(
-                          textAlign: TextAlign.center,
-                          'Your smart travel companion all enhanced by AI',
-                          style: GoogleFonts.inter(
-                            color: const Color(0xFFFFFFFF),
-                            fontWeight: FontWeight.w300,
-                            fontSize: 14.0,
-                          ),
-                        ),
-
-                        // Display the selected GIF here
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child: Image.asset(
-                            selectedGif,
-                            height: 180.0,
-                            width: 180.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
+          // Column ends here
         ),
-        // Column ends here
       ),
       floatingActionButton: Container(
         padding: const EdgeInsets.all(8.0),
