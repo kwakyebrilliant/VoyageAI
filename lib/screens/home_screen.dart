@@ -16,9 +16,17 @@ class _HomeScreenState extends State<HomeScreen> {
       // Padding around contents
       body: Padding(
         padding: const EdgeInsets.only(top: 50.0, left: 10.0, right: 10.0),
-        child: Text(
-          'Home Screen',
+
+        // Column starts here
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            RichText(
+              text: TextSpan(),
+            ),
+          ],
         ),
+        // Column ends here
       ),
       floatingActionButton: Container(
         padding: const EdgeInsets.all(8.0),
