@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text(
                             textAlign: TextAlign.center,
-                            'Your smart travel companion all enhanced by AI',
+                            'Plan your travels with this AI enhanced application',
                             style: GoogleFonts.inter(
                               color: const Color(0xFFFFFFFF),
                               fontWeight: FontWeight.w300,
