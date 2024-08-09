@@ -11,6 +11,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // Simulate a list of bookmarks (empty or with items)
+  final List<String> bookmarks = []; // Replace with actual bookmark data
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +72,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 // Column starts here
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    NoBookmark(),
-                  ],
+                  children: bookmarks.isEmpty
+                      ? const [NoBookmark()]
+                      : [
+                          Container(
+                            padding: const EdgeInsets.all(20.0),
+                            height: 320.0,
+                            width: 320.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF494B45).withOpacity(0.4),
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Bookmarks:',
+                                  style: GoogleFonts.inter(
+                                    color: const Color(0xFFFFFFFF),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                  ),
+                                ),
+                                // Display bookmarks (this is a simple example)
+                                for (var bookmark in bookmarks)
+                                  Text(
+                                    bookmark,
+                                    style: GoogleFonts.inter(
+                                      color: const Color(0xFFFFFFFF),
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14.0,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ],
                 ),
               ),
             ],
