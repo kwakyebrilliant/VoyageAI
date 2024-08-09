@@ -39,7 +39,7 @@ class _BookmarkState extends State<Bookmark> {
         ClipPath(
           clipper: BookmarkCardClipper(),
           child: Container(
-            width: 320.0,
+            width: 355.0,
             height: 220.0,
             color: const Color(0xFFF6C00A),
             child: Center(
