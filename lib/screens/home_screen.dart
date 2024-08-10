@@ -13,7 +13,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // Simulate a list of bookmarks (empty or with items)
-  final List<String> bookmarks = ["Bookmark 1", "Bookmark 2"];
+  final List<String> bookmarks = [
+    "bookmarks 1",
+    "bookmarks 2",
+    "bookmarks 3",
+    "bookmarks 4",
+    "bookmarks 5",
+    "bookmarks 6",
+    "bookmarks 7",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +38,14 @@ class _HomeScreenState extends State<HomeScreen> {
             fit: BoxFit.cover,
           ),
         ),
-
-        // Padding around contents
-        child: Padding(
-          padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
-
-          // Column starts here
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // RichText in an align widget
-              Align(
-                alignment: Alignment.center,
-
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              backgroundColor: const Color(0xFFFFFFFF),
+              flexibleSpace: FlexibleSpaceBar(
+                centerTitle: true,
                 // RichText for logo
-                child: RichText(
+                title: RichText(
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
@@ -67,22 +68,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-
-              // Expanded here
-              Expanded(
-                // Column starts here
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: bookmarks.isEmpty
-                      ? const [NoBookmark()]
-                      : [
-                          const Bookmark(),
-                        ],
-                ),
+              floating: true,
+              snap: true,
+              expandedHeight: 80.0,
+              collapsedHeight: 52.0,
+              toolbarHeight: 52.0,
+              pinned: true,
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: bookmarks.isEmpty
+                    ? SizedBox(
+                        height: MediaQuery.of(context).size.height -
+                            kToolbarHeight -
+                            80.0,
+                        child: const Center(
+                          child: NoBookmark(),
+                        ),
+                      )
+                    : Bookmark(bookmarks: bookmarks),
               ),
-            ],
-          ),
-          // Column ends here
+            ),
+          ],
         ),
       ),
       floatingActionButton: Container(
