@@ -16,7 +16,7 @@ class _BookmarkState extends State<Bookmark> {
 
   @override
   Widget build(BuildContext context) {
-    double bookmarkHeight = 230.0;
+    double bookmarkHeight = 240.0;
     double totalHeight = bookmarkHeight * widget.bookmarks.length;
 
     return SizedBox(
@@ -34,7 +34,7 @@ class _BookmarkState extends State<Bookmark> {
           );
 
           return Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
+            padding: const EdgeInsets.only(bottom: 15.0),
             child: Row(
               children: [
                 Container(
@@ -89,7 +89,7 @@ class _BookmarkState extends State<Bookmark> {
                               child: RotatedBox(
                                 quarterTurns: -1,
                                 child: Text(
-                                  widget.bookmarks.length.toString(),
+                                  "3",
                                   style: GoogleFonts.inter(
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.w800,
