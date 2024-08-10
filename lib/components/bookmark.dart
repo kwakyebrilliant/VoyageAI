@@ -99,7 +99,7 @@ class _BookmarkState extends State<Bookmark> {
             width: 350.0,
             height: 220.0,
             color: const Color(0xFFF6C00A),
-            child: Center(
+            child: const Center(
               child: Text(
                 'Bookmark',
                 style: TextStyle(
