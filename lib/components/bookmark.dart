@@ -140,7 +140,7 @@ class BookmarkCardClipper extends CustomClipper<Path> {
     double cornerRadius = 20.0;
     Path path = Path();
     path.moveTo(0, cornerRadius);
-    path.quadraticBezierTo(0, 0, cornerRadius, 0);
+    path.quadraticBezierTo(0, 0, 0, 0);
     path.lineTo(size.width - cornerRadius, 0);
     path.quadraticBezierTo(size.width, 0, size.width, cornerRadius);
     path.lineTo(size.width, size.height - cornerRadius * 3);
