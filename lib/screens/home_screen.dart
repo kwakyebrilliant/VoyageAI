@@ -98,13 +98,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      // floatingActionButton here
+      // Container around floatingActionButton
       floatingActionButton: Container(
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: const Color(0xFFF6C00A).withOpacity(0.8),
           shape: BoxShape.circle,
         ),
+
+        // FloatingActionButton here
         child: FloatingActionButton(
           backgroundColor: const Color(0xFF000000),
           shape: RoundedRectangleBorder(
