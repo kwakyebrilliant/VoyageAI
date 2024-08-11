@@ -112,17 +112,17 @@ class _BookmarkState extends State<Bookmark> {
                   child: Container(
                     width: 350.0,
                     height: 220.0,
-                    color: const Color(0xFFF6C00A),
                     padding: const EdgeInsets.all(10.0),
+                    color: const Color(0xFFF9F9FA),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           widget.bookmarks[index],
                           style: GoogleFonts.inter(
-                            fontSize: 18.0,
+                            fontSize: 14.0,
                             fontWeight: FontWeight.w600,
-                            color: Colors.white,
+                            color: const Color(0xFF000000),
                           ),
                         ),
                       ],
