@@ -10,6 +10,7 @@ class NoBookmark extends StatefulWidget {
 }
 
 class _NoBookmarkState extends State<NoBookmark> {
+  // GIF list
   final List<String> gifData = [
     'assets/images/travel.gif',
     'assets/images/travel2.gif',
@@ -17,6 +18,7 @@ class _NoBookmarkState extends State<NoBookmark> {
     'assets/images/travel4.gif',
   ];
 
+  // variable
   late String selectedGif;
 
   @override
@@ -29,6 +31,7 @@ class _NoBookmarkState extends State<NoBookmark> {
 
   @override
   Widget build(BuildContext context) {
+    // Container for all contents
     return Container(
       padding: const EdgeInsets.all(20.0),
       height: 320.0,
@@ -37,9 +40,12 @@ class _NoBookmarkState extends State<NoBookmark> {
         color: const Color(0xFF494B45).withOpacity(0.4),
         borderRadius: BorderRadius.circular(20.0),
       ),
+
+      // Column starts here
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // First text
           Text(
             'No planned travels yet...',
             style: GoogleFonts.inter(
@@ -48,6 +54,8 @@ class _NoBookmarkState extends State<NoBookmark> {
               fontSize: 18.0,
             ),
           ),
+
+          // Second text
           Text(
             textAlign: TextAlign.center,
             'Plan your travels with this AI enhanced application',
@@ -69,6 +77,7 @@ class _NoBookmarkState extends State<NoBookmark> {
           ),
         ],
       ),
+      // Column ends here
     );
   }
 }
