@@ -81,6 +81,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: bookmarks.isEmpty
+
+                    // Sizedbox containing bookmarks or no bookmarks
                     ? SizedBox(
                         height: MediaQuery.of(context).size.height -
                             kToolbarHeight -
