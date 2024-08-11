@@ -77,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // SliverToBoxAdapter for contents
             SliverToBoxAdapter(
+              // Padding around sizedbox containing bookmarks or no bookmarks
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: bookmarks.isEmpty
