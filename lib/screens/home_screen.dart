@@ -97,6 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+
+      // floatingActionButton here
       floatingActionButton: Container(
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
@@ -109,8 +111,10 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(100.0),
           ),
           onPressed: widget.showPromptScreen,
+
+          // location icon here
           child: const Icon(
-            Icons.mode_of_travel_rounded,
+            Icons.location_on_outlined,
             color: Color(0xFFFFFFFF),
           ),
         ),
