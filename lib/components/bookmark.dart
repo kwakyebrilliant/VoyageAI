@@ -126,7 +126,7 @@ class _BookmarkState extends State<Bookmark> {
                                 horizontal: 10.0,
                               ),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF494B45),
+                                color: const Color(0xFF494B45).withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Row(
@@ -155,7 +155,7 @@ class _BookmarkState extends State<Bookmark> {
                                 horizontal: 10.0,
                               ),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF494B45),
+                                color: const Color(0xFF494B45).withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Row(
@@ -180,13 +180,21 @@ class _BookmarkState extends State<Bookmark> {
                             ),
                           ],
                         ),
-                        Text(
-                          widget.bookmarks[index],
-                          style: GoogleFonts.inter(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xFF000000),
-                          ),
+                        const SizedBox(
+                          height: 100.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              widget.bookmarks[index],
+                              style: GoogleFonts.inter(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w600,
+                                color: const Color(0xFFFFFFFF),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

@@ -114,9 +114,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           onPressed: widget.showPromptScreen,
 
-          // location icon here
+          // add_location icon here
           child: const Icon(
-            Icons.location_on_outlined,
+            Icons.add_location_alt_outlined,
             color: Color(0xFFFFFFFF),
           ),
         ),
