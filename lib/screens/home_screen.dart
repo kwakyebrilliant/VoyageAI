@@ -75,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
               toolbarHeight: 52.0,
               pinned: true,
             ),
+            // SliverToBoxAdapter for contents
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
