@@ -226,13 +226,26 @@ class _BookmarkState extends State<Bookmark> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              widget.bookmarks[index],
-                              style: GoogleFonts.inter(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w600,
-                                color: const Color(0xFFFFFFFF),
-                              ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Distance from you',
+                                  style: GoogleFonts.inter(
+                                    color: const Color(0xFF000000),
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 12.0,
+                                  ),
+                                ),
+                                Text(
+                                  widget.bookmarks[index],
+                                  style: GoogleFonts.inter(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xFF000000),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
