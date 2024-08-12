@@ -242,12 +242,16 @@ class _BookmarkState extends State<Bookmark> {
                             vertical: 6.0,
                             horizontal: 10.0,
                           ),
+
+                          // Distance, remove bookmark, launch in browser and budget in a row
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              // Column for distance, remove bookmark, launch in browser and budget
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  // Distance text
                                   Text(
                                     'Distance from you',
                                     style: GoogleFonts.inter(
@@ -256,6 +260,8 @@ class _BookmarkState extends State<Bookmark> {
                                       fontSize: 13.0,
                                     ),
                                   ),
+
+                                  // Actual distance value
                                   RichText(
                                     text: TextSpan(
                                       children: <TextSpan>[
@@ -278,8 +284,13 @@ class _BookmarkState extends State<Bookmark> {
                                       ],
                                     ),
                                   ),
+
+                                  // Padding around remove bookmark and launch in browser
                                   const Padding(
-                                    padding: EdgeInsets.only(top: 16.0),
+                                    padding: EdgeInsets.only(
+                                      top: 10.0,
+                                      bottom: 5.0,
+                                    ),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
