@@ -219,35 +219,110 @@ class _BookmarkState extends State<Bookmark> {
                         ),
 
                         const SizedBox(
-                          height: 100.0,
+                          height: 70.0,
                         ),
 
-                        // Row for bottom items
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Distance from you',
-                                  style: GoogleFonts.inter(
-                                    color: const Color(0xFF000000),
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 12.0,
+                        // Row for bottom items with a faded black background
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF000000).withOpacity(0.6),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 6.0,
+                            horizontal: 10.0,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Distance from you',
+                                    style: GoogleFonts.inter(
+                                      color: const Color(
+                                          0xFFFFFFFF), // Change text color to contrast with the background
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 13.0,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  widget.bookmarks[index],
-                                  style: GoogleFonts.inter(
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w600,
-                                    color: const Color(0xFF000000),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                          text: widget.bookmarks[index],
+                                          style: GoogleFonts.inter(
+                                            fontSize: 30.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: const Color(
+                                                0xFFFFFFFF), // Change text color to contrast with the background
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: 'km',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.w300,
+                                            color: const Color(
+                                                0xFFFFFFFF), // Change text color to contrast with the background
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 10.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Icon(
+                                          Icons.bookmark_remove_rounded,
+                                          color: Color(
+                                              0xFFFFFFFF), // Change icon color to contrast with the background
+                                          size: 20.0,
+                                        ),
+                                        SizedBox(
+                                          width: 30.0,
+                                        ),
+                                        Icon(
+                                          Icons.launch_outlined,
+                                          color: Color(
+                                              0xFFFFFFFF), // Change icon color to contrast with the background
+                                          size: 20.0,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              RichText(
+                                text: TextSpan(
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: '\$100.',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 30.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: const Color(
+                                            0xFFFFFFFF), // Change text color to contrast with the background
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '72',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 13.0,
+                                        fontWeight: FontWeight.w300,
+                                        color: const Color(
+                                            0xFFFFFFFF), // Change text color to contrast with the background
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
