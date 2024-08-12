@@ -229,7 +229,7 @@ class _BookmarkState extends State<Bookmark> {
                         ),
 
                         const SizedBox(
-                          height: 70.0,
+                          height: 65.0,
                         ),
 
                         // Row for bottom items with a faded black background
@@ -282,7 +282,7 @@ class _BookmarkState extends State<Bookmark> {
                                     ),
                                   ),
                                   const Padding(
-                                    padding: EdgeInsets.only(top: 10.0),
+                                    padding: EdgeInsets.only(top: 15.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
