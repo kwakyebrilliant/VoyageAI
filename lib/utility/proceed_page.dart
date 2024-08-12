@@ -122,11 +122,7 @@ class _ProceedPageState extends State<ProceedPage> {
                                   const EdgeInsets.only(right: 10.0, top: 10.0),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.0),
-                                border: Border.all(
-                                  width: 0.4,
-                                  color:
-                                      const Color(0xFF494B45).withOpacity(0.8),
-                                ),
+                                color: const Color(0xFFF9F9FA),
                               ),
 
                               // Container for each genre
