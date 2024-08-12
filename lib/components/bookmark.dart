@@ -126,13 +126,17 @@ class _BookmarkState extends State<Bookmark> {
                   width: 2.0,
                 ),
 
+                // ClipPath here
                 ClipPath(
+                  // Bookmark Content Container with Custom Clipping
                   clipper: BookmarkCardClipper(),
                   child: Container(
                     width: 350.0,
                     height: 220.0,
                     padding: const EdgeInsets.all(10.0),
                     color: const Color(0xFFF9F9FA),
+
+                    // Column starts here
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -217,6 +221,7 @@ class _BookmarkState extends State<Bookmark> {
                         ),
                       ],
                     ),
+                    // Column ends here
                   ),
                 ),
               ],
