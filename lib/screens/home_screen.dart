@@ -14,13 +14,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Simulate a list of bookmarks (empty or with items)
   final List<String> bookmarks = [
-    "bookmarks 1",
-    "bookmarks 2",
-    "bookmarks 3",
-    "bookmarks 4",
-    "bookmarks 5",
-    "bookmarks 6",
-    "bookmarks 7",
+    "46.3",
+    "300.12",
+    "12.04",
+    "72.10",
+    "500.57",
+    "162.18",
+    "14.92",
   ];
 
   @override
