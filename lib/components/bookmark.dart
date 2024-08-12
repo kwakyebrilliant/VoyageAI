@@ -58,6 +58,8 @@ class _BookmarkState extends State<Bookmark> {
                       bottomLeft: Radius.circular(10.0),
                     ),
                   ),
+
+                  // Column starts here
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -76,6 +78,7 @@ class _BookmarkState extends State<Bookmark> {
                         children: [
                           RotatedBox(
                             quarterTurns: -1,
+                            // Day or days text
                             child: Text(
                               'DAYS',
                               style: GoogleFonts.inter(
@@ -85,9 +88,12 @@ class _BookmarkState extends State<Bookmark> {
                               ),
                             ),
                           ),
+
                           const SizedBox(
                             height: 8.0,
                           ),
+
+                          // Container for the number of days
                           Container(
                             height: 30.0,
                             width: 30.0,
@@ -114,9 +120,12 @@ class _BookmarkState extends State<Bookmark> {
                     ],
                   ),
                 ),
+                // Column ends here
+
                 const SizedBox(
                   width: 2.0,
                 ),
+
                 ClipPath(
                   clipper: BookmarkCardClipper(),
                   child: Container(
