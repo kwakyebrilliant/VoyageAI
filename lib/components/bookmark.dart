@@ -134,7 +134,17 @@ class _BookmarkState extends State<Bookmark> {
                     width: 350.0,
                     height: 220.0,
                     padding: const EdgeInsets.all(10.0),
-                    color: const Color(0xFFF9F9FA),
+
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFF9F9FA),
+                      image: DecorationImage(
+                        // Background image here
+                        image: AssetImage(
+                          "assets/images/background.png",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
 
                     // Column starts here
                     child: Column(
