@@ -291,18 +291,24 @@ class _BookmarkState extends State<Bookmark> {
                                       top: 10.0,
                                       bottom: 5.0,
                                     ),
+
+                                    // Remove bookmark and launch in browser icon in a row
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
+                                        // Remove bookmark icon
                                         Icon(
                                           Icons.bookmark_remove_rounded,
                                           color: Color(0xFFFFFFFF),
                                           size: 20.0,
                                         ),
+
                                         SizedBox(
                                           width: 30.0,
                                         ),
+
+                                        // Launch in browser icon
                                         Icon(
                                           Icons.launch_outlined,
                                           color: Color(0xFFFFFFFF),
