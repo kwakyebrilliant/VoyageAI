@@ -19,7 +19,9 @@ class _BookmarkState extends State<Bookmark> {
     double bookmarkHeight = 240.0;
     double totalHeight = bookmarkHeight * widget.bookmarks.length;
 
-    return SizedBox(
+    return
+        // Sizedbox for all bookmarks
+        SizedBox(
       height: totalHeight,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
@@ -209,6 +211,7 @@ class _BookmarkState extends State<Bookmark> {
   }
 }
 
+// Bookmark card clipper
 class BookmarkCardClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
