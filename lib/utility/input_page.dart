@@ -32,47 +32,53 @@ class _InputPageState extends State<InputPage> {
 
             // Column starts here
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header and sub-header text
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    children: <InlineSpan>[
-                      // Header text
-                      TextSpan(
-                        text: 'Next Travel?\n',
-                        style: GoogleFonts.roboto(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF000000),
-                        ),
-                      ),
+                // Header and sub-header center aligned
+                Align(
+                  alignment: Alignment.center,
 
-                      const WidgetSpan(
-                        child: SizedBox(height: 30.0),
-                      ),
-
-                      // First sub-header text
-                      TextSpan(
-                        text: 'Plan your next travel with voyageAI and get \n',
-                        style: GoogleFonts.inter(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xFF494B45),
+                  // Header and sub-header text
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: <InlineSpan>[
+                        // Header text
+                        TextSpan(
+                          text: 'Next Travel?\n',
+                          style: GoogleFonts.roboto(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xFF000000),
+                          ),
                         ),
-                      ),
 
-                      // Second sub-header text
-                      TextSpan(
-                        text: 'the best budget friendly destinations \n',
-                        style: GoogleFonts.inter(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xFF494B45),
+                        const WidgetSpan(
+                          child: SizedBox(height: 30.0),
                         ),
-                      ),
-                    ],
+
+                        // First sub-header text
+                        TextSpan(
+                          text:
+                              'Plan your next travel with voyageAI and get \n',
+                          style: GoogleFonts.inter(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xFF494B45),
+                          ),
+                        ),
+
+                        // Second sub-header text
+                        TextSpan(
+                          text: 'the best budget friendly destinations \n',
+                          style: GoogleFonts.inter(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xFF494B45),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
