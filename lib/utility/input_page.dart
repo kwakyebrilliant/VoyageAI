@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:country_picker/country_picker.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+class City {
+  final String name;
+  final String country;
+
+  City({required this.name, required this.country});
+}
 
 class InputPage extends StatefulWidget {
   final VoidCallback showProceedPage;
@@ -10,16 +21,54 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  String? _selectedCountry;
+  String? _selectedCountryCode;
+  City? _selectedCity;
+  final String _apiKey = 'a1ee494806499c22fcf70b60907fe3f9';
+
+  void _showCountryPicker() {
+    showCountryPicker(
+      context: context,
+      showPhoneCode: false,
+      onSelect: (Country country) {
+        setState(() {
+          _selectedCountry = country.name;
+          _selectedCountryCode = country.countryCode;
+        });
+      },
+    );
+  }
+
+  Future<List<City>> _fetchCities(String query) async {
+    final response = await http.get(Uri.parse(
+        'http://api.openweathermap.org/data/2.5/find?q=$query,$_selectedCountryCode&appid=$_apiKey'));
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      if (data['list'] != null) {
+        return List<City>.from(
+          data['list'].map((city) => City(
+                name: city['name'],
+                country: city['sys']['country'],
+              )),
+        );
+      }
+    }
+    return [];
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Stack for all content
     return Stack(
       children: [
-        // Form container positioned at the top
+        // Container positioned at the top
         Positioned(
           top: 0.0,
           left: 10.0,
           right: 10.0,
-          // Form container
+
+          // Container for forms
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 10.0,
@@ -34,16 +83,13 @@ class _InputPageState extends State<InputPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header and sub-header center aligned
+                // Header and sub-header text aligned center
                 Align(
                   alignment: Alignment.center,
-
-                  // Header and sub-header text
                   child: RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       children: <InlineSpan>[
-                        // Header text
                         TextSpan(
                           text: 'Next Travel?\n',
                           style: GoogleFonts.roboto(
@@ -52,12 +98,9 @@ class _InputPageState extends State<InputPage> {
                             color: const Color(0xFF000000),
                           ),
                         ),
-
                         const WidgetSpan(
                           child: SizedBox(height: 30.0),
                         ),
-
-                        // First sub-header text
                         TextSpan(
                           text:
                               'Plan your next travel with voyageAI and get \n',
@@ -67,8 +110,6 @@ class _InputPageState extends State<InputPage> {
                             color: const Color(0xFF494B45),
                           ),
                         ),
-
-                        // Second sub-header text
                         TextSpan(
                           text: 'the best budget friendly destinations \n',
                           style: GoogleFonts.inter(
@@ -82,13 +123,13 @@ class _InputPageState extends State<InputPage> {
                   ),
                 ),
 
-                // Column for destination text and dropdowns in a padding
+                // Padding around column for country and city select
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
-
-                  // Column for destination text and dropdowns
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Select destination text
                       Text(
                         'SELECT DESTINATION',
                         style: GoogleFonts.roboto(
@@ -97,26 +138,160 @@ class _InputPageState extends State<InputPage> {
                           color: const Color(0xFF000000),
                         ),
                       ),
+
+                      // Padding around country select
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 10.0,
+                          left: 10.0,
+                          right: 10.0,
+                        ),
+
+                        // Container for country select in GestureDetector
+                        child: GestureDetector(
+                          onTap: _showCountryPicker,
+
+                          // Container for country select
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 16.0,
+                              horizontal: 10.0,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.0),
+                              color: const Color(0xFFFFFFFF),
+                              border: Border.all(
+                                color: const Color(0xFFFFFFFF),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  _selectedCountry ?? 'Select Country',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color(0xFF494B45),
+                                  ),
+                                ),
+                                const Icon(
+                                  Icons.arrow_drop_down,
+                                  color: Color(0xFF494B45),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // padding around typeaheadfield
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 20.0,
+                          left: 10.0,
+                          right: 10.0,
+                        ),
+
+                        // Typeaheadfield here
+                        child: TypeAheadField<City>(
+                          suggestionsCallback: (pattern) async {
+                            if (_selectedCountryCode == null ||
+                                pattern.isEmpty) {
+                              return [];
+                            }
+                            try {
+                              final cities = await _fetchCities(pattern);
+                              return cities
+                                  .where((city) => city.name
+                                      .toLowerCase()
+                                      .contains(pattern.toLowerCase()))
+                                  .toList();
+                            } catch (e) {
+                              print('Error fetching cities: $e');
+                              return [];
+                            }
+                          },
+                          builder: (context, controller, focusNode) {
+                            // Container for textfield in typeaheadfield
+                            return Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12.0),
+                                color: const Color(0xFFFFFFFF),
+                                border: Border.all(
+                                  color: const Color(0xFFFFFFFF),
+                                ),
+                              ),
+
+                              // Textfield here
+                              child: TextField(
+                                controller: controller,
+                                focusNode: focusNode,
+                                autofocus: true,
+                                decoration: InputDecoration(
+                                  enabledBorder: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  labelText: 'City',
+                                  labelStyle: GoogleFonts.inter(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color(0xFF494B45),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          itemBuilder: (context, city) {
+                            // Listtile to display the city in typeaheadfield
+                            return ListTile(
+                              tileColor: const Color(0xFFFFFFFF),
+                              title: Text(
+                                city.name,
+                                style: GoogleFonts.inter(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xFF494B45),
+                                ),
+                              ),
+                              subtitle: Text(
+                                city.country,
+                                style: GoogleFonts.inter(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w200,
+                                  color: const Color(0xFF494B45),
+                                ),
+                              ),
+                            );
+                          },
+                          onSelected: (city) {
+                            setState(() {
+                              _selectedCity = city;
+                            });
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
-
-            // Column ends here
           ),
         ),
 
-        // Proceed container positioned at the bottom
+        // Proceed button positioned at the bottom
         Positioned(
           bottom: 0.0,
           left: 10.0,
           right: 10.0,
-          // Proceed container in GestureDetector
+
+          // Proceed button in GestureDetector
           child: GestureDetector(
             onTap: widget.showProceedPage,
 
-            // Proceed container
+            // Proceed button container
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 18.0),
               decoration: BoxDecoration(
@@ -124,9 +299,9 @@ class _InputPageState extends State<InputPage> {
                 color: const Color(0xFFF6C00A),
               ),
 
-              // Proceed text centered
+              // Proceed button text centered
               child: Center(
-                // Proceed text here
+                // Proceed button text
                 child: Text(
                   'Proceed',
                   style: GoogleFonts.inter(
