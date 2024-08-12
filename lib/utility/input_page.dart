@@ -24,7 +24,7 @@ class _InputPageState extends State<InputPage> {
   String? _selectedCountry;
   String? _selectedCountryCode;
   City? _selectedCity;
-  final String _apiKey = 'a1ee494806499c22fcf70b60907fe3f9';
+  final String _apiKey = '';
 
   void _showCountryPicker() {
     showCountryPicker(
