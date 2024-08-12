@@ -319,6 +319,8 @@ class _BookmarkState extends State<Bookmark> {
                                   ),
                                 ],
                               ),
+
+                              // Budget value
                               RichText(
                                 text: TextSpan(
                                   children: <TextSpan>[
