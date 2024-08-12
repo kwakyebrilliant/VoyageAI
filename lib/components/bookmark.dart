@@ -140,9 +140,11 @@ class _BookmarkState extends State<Bookmark> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Row for location and rating containers
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            // Container for location
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 6.0,
@@ -152,15 +154,20 @@ class _BookmarkState extends State<Bookmark> {
                                 color: const Color(0xFF494B45).withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
+
+                              // Row for location text and icon
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
+                                  // Location icon
                                   const Icon(
                                     Icons.location_on_rounded,
                                     color: Color(0xFFF6C00A),
                                     size: 20.0,
                                   ),
+
+                                  // Location text
                                   Text(
                                     'Paris, France',
                                     style: GoogleFonts.inter(
@@ -172,6 +179,8 @@ class _BookmarkState extends State<Bookmark> {
                                 ],
                               ),
                             ),
+
+                            // Conatiner for rating
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 6.0,
@@ -181,15 +190,20 @@ class _BookmarkState extends State<Bookmark> {
                                 color: const Color(0xFF494B45).withOpacity(0.7),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
+
+                              // Row for rating text and star icon
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
+                                  // Star icon
                                   const Icon(
                                     Icons.star,
                                     color: Color(0xFFF6C00A),
                                     size: 20.0,
                                   ),
+
+                                  // Rating
                                   Text(
                                     '4.8',
                                     style: GoogleFonts.inter(
@@ -203,9 +217,12 @@ class _BookmarkState extends State<Bookmark> {
                             ),
                           ],
                         ),
+
                         const SizedBox(
                           height: 100.0,
                         ),
+
+                        // Row for bottom items
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
