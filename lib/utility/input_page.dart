@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  final VoidCallback showProceedSceen;
-  const MyWidget({super.key, required this.showProceedSceen});
+class InputPage extends StatefulWidget {
+  final VoidCallback showProceedPage;
+  const InputPage({super.key, required this.showProceedPage});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<InputPage> createState() => _InputPageState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
