@@ -81,6 +81,25 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                 ),
+
+                // Column for destination text and dropdowns in a padding
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+
+                  // Column for destination text and dropdowns
+                  child: Column(
+                    children: [
+                      Text(
+                        'SELECT DESTINATION',
+                        style: GoogleFonts.roboto(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF000000),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
 
