@@ -53,10 +53,13 @@ class _PromptScreenState extends State<PromptScreen> {
             pinned: true,
           ),
           // SliverToBoxAdapter for contents
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: TogglePrompt(),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height - 180.0,
+                child: const TogglePrompt(),
+              ),
             ),
           ),
         ],
