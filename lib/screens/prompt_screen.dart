@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:voyageai/components/toggle_prompt.dart';
 
 class PromptScreen extends StatefulWidget {
   final VoidCallback showHomeScreen;
@@ -52,7 +53,12 @@ class _PromptScreenState extends State<PromptScreen> {
             pinned: true,
           ),
           // SliverToBoxAdapter for contents
-          SliverToBoxAdapter(),
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              child: TogglePrompt(),
+            ),
+          ),
         ],
       ),
       // Container around floatingActionButton
