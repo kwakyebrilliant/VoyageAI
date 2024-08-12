@@ -24,6 +24,10 @@ class _InputPageState extends State<InputPage> {
   String? _selectedCountry;
   String? _selectedCountryCode;
   City? _selectedCity;
+  String _selectedOption = 'Set Budget';
+  double _minBudget = 0;
+  double _maxBudget = 1000;
+
   final String _apiKey = '';
 
   void _showCountryPicker() {
@@ -72,7 +76,7 @@ class _InputPageState extends State<InputPage> {
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 10.0,
-              vertical: 20,
+              vertical: 30,
             ),
             decoration: BoxDecoration(
               color: const Color(0xFFF9F9FA),
@@ -260,7 +264,7 @@ class _InputPageState extends State<InputPage> {
                                 city.country,
                                 style: GoogleFonts.inter(
                                   fontSize: 14.0,
-                                  fontWeight: FontWeight.w200,
+                                  fontWeight: FontWeight.w300,
                                   color: const Color(0xFF494B45),
                                 ),
                               ),
@@ -273,6 +277,113 @@ class _InputPageState extends State<InputPage> {
                           },
                         ),
                       ),
+                    ],
+                  ),
+                ),
+
+                // Padding around budget
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DropdownButton<String>(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0,
+                        ),
+                        value: _selectedOption,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedOption = newValue!;
+                          });
+                        },
+                        underline: Container(
+                          color: Colors.transparent,
+                        ),
+                        dropdownColor: const Color(0xFFFFFFFF),
+                        items: <String>['Set Budget', 'Enter Budget']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: GoogleFonts.inter(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                                color: const Color(0xFF494B45),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 5.0),
+                      if (_selectedOption == 'Set Budget')
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            RangeSlider(
+                              activeColor: const Color(0xFFF6C00A),
+                              inactiveColor:
+                                  const Color(0xFF494B45).withOpacity(0.2),
+                              values: RangeValues(_minBudget, _maxBudget),
+                              min: 0,
+                              max: 10000,
+                              divisions: 100,
+                              labels: RangeLabels(
+                                '\$${_minBudget.round()}',
+                                '\$${_maxBudget.round()}',
+                              ),
+                              onChanged: (RangeValues values) {
+                                setState(() {
+                                  _minBudget = values.start;
+                                  _maxBudget = values.end;
+                                });
+                              },
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: Text(
+                                '\$${_minBudget.round()} - \$${_maxBudget.round()}',
+                                style: GoogleFonts.inter(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xFF494B45),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      else if (_selectedOption == 'Enter Budget')
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.0),
+                              color: const Color(0xFFFFFFFF),
+                              border: Border.all(
+                                color: const Color(0xFFFFFFFF),
+                              ),
+                            ),
+
+                            // Textfield here
+                            child: TextField(
+                              autofocus: true,
+                              decoration: InputDecoration(
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                labelText: 'Enter your budget',
+                                labelStyle: GoogleFonts.inter(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xFF494B45),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
                     ],
                   ),
                 ),
