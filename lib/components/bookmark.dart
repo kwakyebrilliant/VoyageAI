@@ -140,7 +140,7 @@ class _BookmarkState extends State<Bookmark> {
                       image: DecorationImage(
                         // Background image here
                         image: AssetImage(
-                          "assets/images/background.png",
+                          "assets/images/map.png",
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -235,7 +235,7 @@ class _BookmarkState extends State<Bookmark> {
                         // Row for bottom items with a faded black background
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color(0xFF000000).withOpacity(0.6),
+                            color: const Color(0xFF494B45).withOpacity(0.7),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           padding: const EdgeInsets.symmetric(
@@ -251,9 +251,8 @@ class _BookmarkState extends State<Bookmark> {
                                   Text(
                                     'Distance from you',
                                     style: GoogleFonts.inter(
-                                      color: const Color(
-                                          0xFFFFFFFF), // Change text color to contrast with the background
-                                      fontWeight: FontWeight.w300,
+                                      color: const Color(0xFFFFFFFF),
+                                      fontWeight: FontWeight.w400,
                                       fontSize: 13.0,
                                     ),
                                   ),
@@ -265,32 +264,29 @@ class _BookmarkState extends State<Bookmark> {
                                           style: GoogleFonts.inter(
                                             fontSize: 30.0,
                                             fontWeight: FontWeight.w600,
-                                            color: const Color(
-                                                0xFFFFFFFF), // Change text color to contrast with the background
+                                            color: const Color(0xFFFFFFFF),
                                           ),
                                         ),
                                         TextSpan(
                                           text: 'km',
                                           style: GoogleFonts.inter(
                                             fontSize: 13.0,
-                                            fontWeight: FontWeight.w300,
-                                            color: const Color(
-                                                0xFFFFFFFF), // Change text color to contrast with the background
+                                            fontWeight: FontWeight.w400,
+                                            color: const Color(0xFFFFFFFF),
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
                                   const Padding(
-                                    padding: EdgeInsets.only(top: 15.0),
+                                    padding: EdgeInsets.only(top: 16.0),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Icon(
                                           Icons.bookmark_remove_rounded,
-                                          color: Color(
-                                              0xFFFFFFFF), // Change icon color to contrast with the background
+                                          color: Color(0xFFFFFFFF),
                                           size: 20.0,
                                         ),
                                         SizedBox(
@@ -298,8 +294,7 @@ class _BookmarkState extends State<Bookmark> {
                                         ),
                                         Icon(
                                           Icons.launch_outlined,
-                                          color: Color(
-                                              0xFFFFFFFF), // Change icon color to contrast with the background
+                                          color: Color(0xFFFFFFFF),
                                           size: 20.0,
                                         ),
                                       ],
@@ -315,17 +310,15 @@ class _BookmarkState extends State<Bookmark> {
                                       style: GoogleFonts.inter(
                                         fontSize: 30.0,
                                         fontWeight: FontWeight.w600,
-                                        color: const Color(
-                                            0xFFFFFFFF), // Change text color to contrast with the background
+                                        color: const Color(0xFFFFFFFF),
                                       ),
                                     ),
                                     TextSpan(
                                       text: '72',
                                       style: GoogleFonts.inter(
                                         fontSize: 13.0,
-                                        fontWeight: FontWeight.w300,
-                                        color: const Color(
-                                            0xFFFFFFFF), // Change text color to contrast with the background
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color(0xFFFFFFFF),
                                       ),
                                     ),
                                   ],
