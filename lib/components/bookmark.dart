@@ -12,6 +12,7 @@ class Bookmark extends StatefulWidget {
 }
 
 class _BookmarkState extends State<Bookmark> {
+  // random object
   final Random random = Random();
 
   @override
@@ -23,11 +24,14 @@ class _BookmarkState extends State<Bookmark> {
         // Sizedbox for all bookmarks
         SizedBox(
       height: totalHeight,
+
+      // This creates a scrollable list of widgets
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: widget.bookmarks.length,
         padding: const EdgeInsets.only(top: 15.0),
         itemBuilder: (context, index) {
+          // Random generated colors
           Color color = Color.fromARGB(
             255,
             random.nextInt(256),
@@ -35,10 +39,14 @@ class _BookmarkState extends State<Bookmark> {
             random.nextInt(256),
           );
 
+          // Padding around the content
           return Padding(
             padding: const EdgeInsets.only(bottom: 15.0),
+
+            // Row for both containers at the left and right
             child: Row(
               children: [
+                // Container for days of travel
                 Container(
                   width: 50.0,
                   height: 220.0,
