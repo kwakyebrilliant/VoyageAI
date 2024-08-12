@@ -13,9 +13,11 @@ class _PromptScreenState extends State<PromptScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
-      body: Center(
-        child: Text(
-          'Prompt Screen',
+      body: Container(
+        child: Center(
+          child: Text(
+            'Prompt Screen',
+          ),
         ),
       ),
     );
