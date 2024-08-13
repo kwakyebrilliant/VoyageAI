@@ -43,16 +43,19 @@ class _ProceedPageState extends State<ProceedPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 30,
-                width: 30.0,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFF6C00A),
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(
-                  Icons.arrow_left_rounded,
-                  size: 30.0,
+              GestureDetector(
+                onTap: widget.showInputPage,
+                child: Container(
+                  height: 30,
+                  width: 30.0,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFF6C00A),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.arrow_left_rounded,
+                    size: 30.0,
+                  ),
                 ),
               ),
               Padding(
