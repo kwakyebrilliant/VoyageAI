@@ -40,21 +40,33 @@ class _ProceedPageState extends State<ProceedPage> {
           top: 0.0,
           left: 10.0,
           right: 10.0,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                RichText(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 30,
+                width: 30.0,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFF6C00A),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.arrow_left_rounded,
+                  size: 30.0,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: RichText(
                   text: TextSpan(
                     style: GoogleFonts.inter(
-                      height: 1.2,
+                      height: 1.1,
                     ),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Select \n',
                         style: GoogleFonts.inter(
-                          fontSize: 44.0,
+                          fontSize: 40.0,
                           fontWeight: FontWeight.w800,
                           color: const Color(0xFF000000),
                         ),
@@ -62,7 +74,7 @@ class _ProceedPageState extends State<ProceedPage> {
                       TextSpan(
                         text: 'Your Travel \n',
                         style: GoogleFonts.inter(
-                          fontSize: 44.0,
+                          fontSize: 40.0,
                           fontWeight: FontWeight.w800,
                           color: const Color(0xFF000000),
                         ),
@@ -70,7 +82,7 @@ class _ProceedPageState extends State<ProceedPage> {
                       TextSpan(
                         text: 'Interest',
                         style: GoogleFonts.inter(
-                          fontSize: 44.0,
+                          fontSize: 40.0,
                           fontWeight: FontWeight.w800,
                           color: const Color(0xFF000000),
                         ),
@@ -78,81 +90,80 @@ class _ProceedPageState extends State<ProceedPage> {
                     ],
                   ),
                 ),
+              ),
 
-                // Padding around various genres in a wrap
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10.0,
-                    right: 10.0,
-                    top: 20.0,
-                  ),
+              // Padding around various genres in a wrap
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 10.0,
+                  right: 10.0,
+                  top: 20.0,
+                ),
 
-                  // Wrap starts here
-                  child: StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return Wrap(
-                        children: interests.map((interest) {
-                          final isSelected =
-                              _selectedInterests.contains(interest);
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (_selectedInterests.contains(interest)) {
-                                  _selectedInterests.remove(interest);
-                                } else {
-                                  _selectedInterests.add(interest);
-                                }
-                              });
-                            },
+                // Wrap starts here
+                child: StatefulBuilder(
+                  builder: (BuildContext context, StateSetter setState) {
+                    return Wrap(
+                      children: interests.map((interest) {
+                        final isSelected =
+                            _selectedInterests.contains(interest);
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (_selectedInterests.contains(interest)) {
+                                _selectedInterests.remove(interest);
+                              } else {
+                                _selectedInterests.add(interest);
+                              }
+                            });
+                          },
 
-                            // Container with border around each genre
+                          // Container with border around each genre
+                          child: Container(
+                            padding: const EdgeInsets.all(3.0),
+                            margin:
+                                const EdgeInsets.only(right: 10.0, top: 10.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: const Color(0xFFF9F9FA),
+                            ),
+
+                            // Container for each genre
                             child: Container(
-                              padding: const EdgeInsets.all(3.0),
-                              margin:
-                                  const EdgeInsets.only(right: 10.0, top: 10.0),
+                              padding: const EdgeInsets.only(
+                                left: 16.0,
+                                right: 16.0,
+                                top: 8.0,
+                                bottom: 8.0,
+                              ),
                               decoration: BoxDecoration(
+                                color: isSelected
+                                    ? const Color(0xFFF6C00A)
+                                    : const Color(0xFFFFFFFF).withOpacity(0.8),
                                 borderRadius: BorderRadius.circular(20.0),
-                                color: const Color(0xFFF9F9FA),
                               ),
 
-                              // Container for each genre
-                              child: Container(
-                                padding: const EdgeInsets.only(
-                                  left: 16.0,
-                                  right: 16.0,
-                                  top: 8.0,
-                                  bottom: 8.0,
-                                ),
-                                decoration: BoxDecoration(
+                              // Text for each genre
+                              child: Text(
+                                interest,
+                                style: GoogleFonts.inter(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w600,
                                   color: isSelected
-                                      ? const Color(0xFFF6C00A)
-                                      : const Color(0xFFFFFFFF)
-                                          .withOpacity(0.8),
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-
-                                // Text for each genre
-                                child: Text(
-                                  interest,
-                                  style: GoogleFonts.inter(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w600,
-                                    color: isSelected
-                                        ? const Color(0xFFFFFFFF)
-                                        : const Color(0xFF000000),
-                                  ),
+                                      ? const Color(0xFFFFFFFF)
+                                      : const Color(0xFF000000),
                                 ),
                               ),
                             ),
-                          );
-                        }).toList(),
-                      );
-                    },
-                  ),
-                  // Wrap ends here
+                          ),
+                        );
+                      }).toList(),
+                    );
+                  },
                 ),
-              ],
-            ),
+                // Wrap ends here
+              ),
+            ],
           ),
         ),
         Positioned(
