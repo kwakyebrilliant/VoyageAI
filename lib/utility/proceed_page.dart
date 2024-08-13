@@ -31,17 +31,6 @@ class _ProceedPageState extends State<ProceedPage> {
   // Selected genres list
   final Set<String> _selectedInterests = {};
 
-  // Function for selected interest(s)
-  void _onInterestTap(String interest) {
-    setState(() {
-      if (_selectedInterests.contains(interest)) {
-        _selectedInterests.remove(interest);
-      } else {
-        _selectedInterests.add(interest);
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
