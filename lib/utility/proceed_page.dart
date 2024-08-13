@@ -12,20 +12,21 @@ class ProceedPage extends StatefulWidget {
 class _ProceedPageState extends State<ProceedPage> {
   // Genre list
   final List<String> interests = [
-    'Jazz',
-    'Rock',
-    'Amapiano',
-    'R&B',
-    'Latin',
-    'Hip-Hop',
-    'Hip-Life',
-    'Reggae',
-    'Gospel',
-    'Afrobeat',
-    'Blues',
-    'Country',
-    'Punk',
-    'Pop',
+    'Cultural Heritage',
+    'Adventure Sports',
+    'Culinary Exploration',
+    'Beach Relaxation',
+    'Nature & Wildlife',
+    'Urban Exploration',
+    'Wellness & Spa',
+    'Nightlife & Entertainment',
+    'Art & Creativity',
+    'Festivals & Events',
+    'Photography',
+    'Historical Tours',
+    'Religious',
+    'Shopping & Fashion',
+    'Family-Friendly Activities',
   ];
 
   // Selected genres list
@@ -83,7 +84,7 @@ class _ProceedPageState extends State<ProceedPage> {
                   padding: const EdgeInsets.only(
                     left: 10.0,
                     right: 10.0,
-                    top: 30.0,
+                    top: 20.0,
                   ),
 
                   // Wrap starts here
