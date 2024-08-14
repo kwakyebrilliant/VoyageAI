@@ -34,6 +34,7 @@ class _ProceedPageState extends State<ProceedPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Stack for all content
     return Stack(
       children: [
         Positioned(
