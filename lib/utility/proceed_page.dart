@@ -37,6 +37,7 @@ class _ProceedPageState extends State<ProceedPage> {
     // Stack for all content
     return Stack(
       children: [
+        // Navigate back container, header text and list of interets positioned at the top
         Positioned(
           top: 0.0,
           left: 10.0,
