@@ -171,6 +171,8 @@ class _ProceedPageState extends State<ProceedPage> {
             ],
           ),
         ),
+
+        // Submit button positioned at the bottom
         Positioned(
           bottom: 0.0,
           left: 10.0,
