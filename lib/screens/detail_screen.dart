@@ -248,7 +248,7 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         ColorFiltered(
                           colorFilter: ColorFilter.mode(
-                            const Color(0xFF000000).withOpacity(0.2),
+                            const Color(0xFF000000).withOpacity(0.4),
                             BlendMode.srcATop,
                           ),
                           child: ClipRRect(
@@ -335,25 +335,91 @@ class DetailScreen extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          bottom: 0.0,
+                          bottom: 20.0,
                           left: 20.0,
                           right: 20.0,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Icon(
-                                Icons.location_on_rounded,
-                                color: Color(0xFFFFFFFF),
-                                size: 12.0,
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/images/map_vector.png",
+                                    height: 150.0,
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                'ai',
-                                style: GoogleFonts.inter(
-                                  fontSize: 28.0,
-                                  fontWeight: FontWeight.w800,
-                                  color: const Color(0xFFFFFFFF),
-                                ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // Distance from you text
+                                  Text(
+                                    'Distance from you',
+                                    style: GoogleFonts.inter(
+                                      color: const Color(0xFFFFFFFF),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 13.0,
+                                    ),
+                                  ),
+
+                                  // Distance from you value
+                                  RichText(
+                                    text: TextSpan(
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                          text: "46.3",
+                                          style: GoogleFonts.inter(
+                                            fontSize: 36.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: const Color(0xFFFFFFFF),
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: 'km',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.w400,
+                                            color: const Color(0xFFFFFFFF),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  // Rating rown in a paddding
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      top: 10.0,
+                                      bottom: 5.0,
+                                    ),
+
+                                    // Rating row
+                                    child: Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.star,
+                                          color: Color(0xFFF6C00A),
+                                          size: 20.0,
+                                        ),
+
+                                        // Rating here
+                                        Text(
+                                          '4.8 Rating',
+                                          style: GoogleFonts.inter(
+                                            color: const Color(0xFFFFFFFF),
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 14.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
