@@ -30,10 +30,10 @@ class DetailScreen extends StatelessWidget {
               // Location container
               title: Container(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 6.0,
-                  horizontal: 10.0,
+                  vertical: 2.0,
+                  horizontal: 6.0,
                 ),
-                width: 125.0,
+                width: 105.0,
                 decoration: BoxDecoration(
                   color: const Color(0xFF494B45).withOpacity(0.7),
                   borderRadius: BorderRadius.circular(20.0),
@@ -46,7 +46,7 @@ class DetailScreen extends StatelessWidget {
                     const Icon(
                       Icons.location_on_rounded,
                       color: Color(0xFFF6C00A),
-                      size: 20.0,
+                      size: 15.0,
                     ),
 
                     // Location text here
@@ -55,7 +55,7 @@ class DetailScreen extends StatelessWidget {
                       style: GoogleFonts.inter(
                         color: const Color(0xFFFFFFFF),
                         fontWeight: FontWeight.w300,
-                        fontSize: 14.0,
+                        fontSize: 12.0,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
