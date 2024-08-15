@@ -119,15 +119,45 @@ class DetailScreen extends StatelessWidget {
 
           // SliverToBoxAdapter for other contents
           SliverToBoxAdapter(
+            // Padding around contents
             child: Padding(
               padding: const EdgeInsets.only(
-                top: 10.0,
+                top: 30.0,
                 left: 10.0,
                 right: 10.0,
               ),
+
+              // Column starts here
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Header text
+                  RichText(
+                    text: TextSpan(
+                      style: GoogleFonts.poppins(
+                        height: 1.1,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'For your 3 days experience to \n',
+                          style: GoogleFonts.poppins(
+                            fontSize: 26.0,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF000000),
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Paris, France',
+                          style: GoogleFonts.poppins(
+                            fontSize: 26.0,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFFF6C00A),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   Text(
                     bookmark,
                     style: const TextStyle(
@@ -137,6 +167,7 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              // Column ends here
             ),
           ),
         ],
