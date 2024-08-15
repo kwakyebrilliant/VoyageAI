@@ -145,8 +145,11 @@ class _BookmarkState extends State<Bookmark> {
                     ),
                     // Column ends here
                   ),
+
                   const SizedBox(width: 2.0),
+
                   ClipPath(
+                    // BookmarkCardClipper here
                     clipper: BookmarkCardClipper(),
                     child: Container(
                       width: 350.0,
@@ -165,6 +168,7 @@ class _BookmarkState extends State<Bookmark> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
+                              // Container for location icon and text
                               Container(
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 6.0,
@@ -175,13 +179,18 @@ class _BookmarkState extends State<Bookmark> {
                                       const Color(0xFF494B45).withOpacity(0.7),
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
+
+                                // Location icon and text in row
                                 child: Row(
                                   children: [
+                                    // Location icon
                                     const Icon(
                                       Icons.location_on_rounded,
                                       color: Color(0xFFF6C00A),
                                       size: 20.0,
                                     ),
+
+                                    // Location text
                                     Text(
                                       'Paris, France',
                                       style: GoogleFonts.inter(
@@ -195,7 +204,10 @@ class _BookmarkState extends State<Bookmark> {
                               ),
                             ],
                           ),
+
                           const SizedBox(height: 65.0),
+
+                          // Container for distance, rating and budget
                           Container(
                             decoration: BoxDecoration(
                               color: const Color(0xFF494B45).withOpacity(0.7),
@@ -211,6 +223,7 @@ class _BookmarkState extends State<Bookmark> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    // Distance from you text
                                     Text(
                                       'Distance from you',
                                       style: GoogleFonts.inter(
@@ -219,6 +232,8 @@ class _BookmarkState extends State<Bookmark> {
                                         fontSize: 13.0,
                                       ),
                                     ),
+
+                                    // Distance from you value
                                     RichText(
                                       text: TextSpan(
                                         children: <TextSpan>[
@@ -241,11 +256,15 @@ class _BookmarkState extends State<Bookmark> {
                                         ],
                                       ),
                                     ),
+
+                                    // Rating rown in a paddding
                                     Padding(
                                       padding: const EdgeInsets.only(
                                         top: 10.0,
                                         bottom: 5.0,
                                       ),
+
+                                      // Rating row
                                       child: Row(
                                         children: [
                                           const Icon(
@@ -253,6 +272,8 @@ class _BookmarkState extends State<Bookmark> {
                                             color: Color(0xFFF6C00A),
                                             size: 20.0,
                                           ),
+
+                                          // Rating here
                                           Text(
                                             '4.8 Rating',
                                             style: GoogleFonts.inter(
@@ -266,6 +287,8 @@ class _BookmarkState extends State<Bookmark> {
                                     ),
                                   ],
                                 ),
+
+                                // Budget richtext
                                 RichText(
                                   text: TextSpan(
                                     children: <TextSpan>[
