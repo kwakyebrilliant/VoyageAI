@@ -38,6 +38,7 @@ class DetailScreen extends StatelessWidget {
                   color: const Color(0xFF494B45).withOpacity(0.7),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
+
                 // Location icon and text in a row
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
