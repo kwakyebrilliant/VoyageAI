@@ -20,6 +20,7 @@ class DetailScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               centerTitle: true,
+              // Location container
               title: Container(
                 padding: const EdgeInsets.symmetric(
                   vertical: 6.0,
@@ -30,14 +31,18 @@ class DetailScreen extends StatelessWidget {
                   color: const Color(0xFF494B45).withOpacity(0.7),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
+                // Location icon and text in a row
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    // Location icon
                     const Icon(
                       Icons.location_on_rounded,
                       color: Color(0xFFF6C00A),
                       size: 20.0,
                     ),
+
+                    // Location text here
                     Text(
                       'Paris, France',
                       style: GoogleFonts.inter(
@@ -58,9 +63,12 @@ class DetailScreen extends StatelessWidget {
             toolbarHeight: 52.0,
             pinned: true,
             automaticallyImplyLeading: false,
+
+            // Close and remove bookmark iconbutton in a row
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // Close iconbutton
                 IconButton(
                   icon: Container(
                     height: 30.0,
@@ -83,6 +91,8 @@ class DetailScreen extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
+
+                // Remove bookmark iconbutton
                 IconButton(
                   icon: Container(
                     height: 30.0,
@@ -106,6 +116,8 @@ class DetailScreen extends StatelessWidget {
               ],
             ),
           ),
+
+          // SliverToBoxAdapter for other contents
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(
