@@ -175,51 +175,64 @@ class DetailScreen extends StatelessWidget {
                   ),
 
                   // Place data here
-                  const SizedBox(height: 30.0),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: placeData.map((place) {
-                        return Container(
-                          padding: const EdgeInsets.all(3.3),
-                          margin: const EdgeInsets.only(right: 7.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30.0),
-                            border: Border.all(
-                              color: const Color(0xFFF6C00A),
-                              width: 2.0,
-                            ),
-                          ),
-                          child: Container(
-                            height: 130.0,
-                            width: 90.0,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30.0),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: placeData.map((place) {
+                          return Container(
+                            padding: const EdgeInsets.all(3.3),
+                            margin: const EdgeInsets.only(right: 7.0),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  place['image']!,
-                                ),
-                                fit: BoxFit.cover,
+                              borderRadius: BorderRadius.circular(30.0),
+                              border: Border.all(
+                                color: const Color(0xFFF6C00A),
+                                width: 2.0,
                               ),
                             ),
                             child: Stack(
                               children: [
+                                ColorFiltered(
+                                  colorFilter: ColorFilter.mode(
+                                    Colors.black.withOpacity(0.4),
+                                    BlendMode.srcATop,
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    child: Image.asset(
+                                      place['image']!,
+                                      height: 130.0,
+                                      width: 90.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                                 Positioned(
                                   bottom: 0.0,
-                                  child: Text(
-                                    place['location']!,
-                                    style: GoogleFonts.inter(
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: const Color(0xFF494B45),
-                                    ),
+                                  child: Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.location_on_rounded,
+                                        color: Color(0xFFFFFFFF),
+                                        size: 12.0,
+                                      ),
+                                      Text(
+                                        place['location']!,
+                                        style: GoogleFonts.inter(
+                                          fontSize: 10.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: const Color(0xFFFFFFFF),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
-                          ),
-                        );
-                      }).toList(),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ),
 
