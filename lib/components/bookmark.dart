@@ -18,16 +18,20 @@ class _BookmarkState extends State<Bookmark> {
 
   @override
   Widget build(BuildContext context) {
+    // Variables
     double bookmarkHeight = 240.0;
     double totalHeight = bookmarkHeight * widget.bookmarks.length;
 
-    return SizedBox(
+    return
+        // SizedBox for all contents
+        SizedBox(
       height: totalHeight,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: widget.bookmarks.length,
         padding: const EdgeInsets.only(top: 15.0),
         itemBuilder: (context, index) {
+          // Random colors
           Color color = Color.fromARGB(
             255,
             random.nextInt(256),
@@ -35,7 +39,9 @@ class _BookmarkState extends State<Bookmark> {
             random.nextInt(256),
           );
 
-          return Padding(
+          return
+              // Padding at the bottom of each container
+              Padding(
             padding: const EdgeInsets.only(bottom: 15.0),
             child: GestureDetector(
               onTap: () {
