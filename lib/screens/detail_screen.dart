@@ -182,9 +182,9 @@ class DetailScreen extends StatelessWidget {
                       children: placeData.map((place) {
                         return Container(
                           padding: const EdgeInsets.all(3.3),
-                          margin: const EdgeInsets.only(right: 10.0),
+                          margin: const EdgeInsets.only(right: 7.0),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
+                            borderRadius: BorderRadius.circular(30.0),
                             border: Border.all(
                               color: const Color(0xFFF6C00A),
                               width: 2.0,
@@ -194,7 +194,7 @@ class DetailScreen extends StatelessWidget {
                             height: 130.0,
                             width: 90.0,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
+                              borderRadius: BorderRadius.circular(25.0),
                               image: DecorationImage(
                                 image: AssetImage(
                                   place['image']!,
