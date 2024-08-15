@@ -209,23 +209,28 @@ class DetailScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  bottom: 0.0,
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.location_on_rounded,
-                                        color: Color(0xFFFFFFFF),
-                                        size: 12.0,
-                                      ),
-                                      Text(
-                                        place['location']!,
-                                        style: GoogleFonts.inter(
-                                          fontSize: 10.0,
-                                          fontWeight: FontWeight.w500,
-                                          color: const Color(0xFFFFFFFF),
+                                  bottom: 8.0,
+                                  left: 0.0,
+                                  right: 0.0,
+                                  child: Center(
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const Icon(
+                                          Icons.location_on_rounded,
+                                          color: Color(0xFFFFFFFF),
+                                          size: 12.0,
                                         ),
-                                      ),
-                                    ],
+                                        Text(
+                                          place['location']!,
+                                          style: GoogleFonts.inter(
+                                            fontSize: 10.0,
+                                            fontWeight: FontWeight.w500,
+                                            color: const Color(0xFFFFFFFF),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],
