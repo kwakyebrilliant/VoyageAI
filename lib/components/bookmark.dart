@@ -140,7 +140,7 @@ class _BookmarkState extends State<Bookmark> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 padding: const EdgeInsets.symmetric(
@@ -161,34 +161,6 @@ class _BookmarkState extends State<Bookmark> {
                                     ),
                                     Text(
                                       'Paris, France',
-                                      style: GoogleFonts.inter(
-                                        color: const Color(0xFFFFFFFF),
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 14.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 6.0,
-                                  horizontal: 10.0,
-                                ),
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color(0xFF494B45).withOpacity(0.7),
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.star,
-                                      color: Color(0xFFF6C00A),
-                                      size: 20.0,
-                                    ),
-                                    Text(
-                                      '4.8',
                                       style: GoogleFonts.inter(
                                         color: const Color(0xFFFFFFFF),
                                         fontWeight: FontWeight.w300,
@@ -246,25 +218,25 @@ class _BookmarkState extends State<Bookmark> {
                                         ],
                                       ),
                                     ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(
+                                    Padding(
+                                      padding: const EdgeInsets.only(
                                         top: 10.0,
                                         bottom: 5.0,
                                       ),
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Icon(
-                                            Icons.bookmark_remove_rounded,
-                                            color: Color(0xFFFFFFFF),
+                                          const Icon(
+                                            Icons.star,
+                                            color: Color(0xFFF6C00A),
                                             size: 20.0,
                                           ),
-                                          SizedBox(width: 30.0),
-                                          Icon(
-                                            Icons.launch_outlined,
-                                            color: Color(0xFFFFFFFF),
-                                            size: 20.0,
+                                          Text(
+                                            '4.8 Rating',
+                                            style: GoogleFonts.inter(
+                                              color: const Color(0xFFFFFFFF),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 14.0,
+                                            ),
                                           ),
                                         ],
                                       ),
