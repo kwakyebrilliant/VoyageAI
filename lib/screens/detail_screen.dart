@@ -9,6 +9,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
+      // Body here
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -57,27 +58,52 @@ class DetailScreen extends StatelessWidget {
             toolbarHeight: 52.0,
             pinned: true,
             automaticallyImplyLeading: false,
-            leading: IconButton(
-              icon: Container(
-                height: 30.0,
-                width: 30.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xFFFF0000),
-                  border: Border.all(
-                    color: const Color(0xFF494B45).withOpacity(0.2),
-                    width: 0.2,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  icon: Container(
+                    height: 30.0,
+                    width: 30.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: const Color(0xFFFF0000),
+                      border: Border.all(
+                        color: const Color(0xFF494B45).withOpacity(0.2),
+                        width: 0.2,
+                      ),
+                    ),
+                    child: const Icon(
+                      Icons.close_rounded,
+                      color: Color(0xFFFFFFFF),
+                      size: 30.0,
+                    ),
                   ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                 ),
-                child: const Icon(
-                  Icons.close_rounded,
-                  color: Color(0xFFFFFFFF),
-                  size: 30.0,
+                IconButton(
+                  icon: Container(
+                    height: 30.0,
+                    width: 30.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: const Color(0xFF494B45).withOpacity(0.7),
+                      border: Border.all(
+                        color: const Color(0xFF494B45).withOpacity(0.2),
+                        width: 0.2,
+                      ),
+                    ),
+                    child: const Icon(
+                      Icons.bookmark_remove_rounded,
+                      color: Color(0xFFFFFFFF),
+                      size: 23.0,
+                    ),
+                  ),
+                  onPressed: () {},
                 ),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+              ],
             ),
           ),
           SliverToBoxAdapter(
