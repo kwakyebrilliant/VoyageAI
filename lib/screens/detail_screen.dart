@@ -83,7 +83,7 @@ class DetailScreen extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(
-                top: 80.0,
+                top: 10.0,
                 left: 10.0,
                 right: 10.0,
               ),
