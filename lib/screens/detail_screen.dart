@@ -226,7 +226,7 @@ class DetailScreen extends StatelessWidget {
                                           place['location']!,
                                           style: GoogleFonts.inter(
                                             fontSize: 10.0,
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w600,
                                             color: const Color(0xFFFFFFFF),
                                           ),
                                         ),
