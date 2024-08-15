@@ -130,7 +130,7 @@ class DetailScreen extends StatelessWidget {
             // Padding around contents
             child: Padding(
               padding: const EdgeInsets.only(
-                top: 30.0,
+                top: 20.0,
                 left: 10.0,
                 right: 10.0,
               ),
@@ -196,7 +196,7 @@ class DetailScreen extends StatelessWidget {
                               children: [
                                 ColorFiltered(
                                   colorFilter: ColorFilter.mode(
-                                    Colors.black.withOpacity(0.4),
+                                    const Color(0xFF000000).withOpacity(0.4),
                                     BlendMode.srcATop,
                                   ),
                                   child: ClipRRect(
@@ -239,6 +239,126 @@ class DetailScreen extends StatelessWidget {
                           );
                         }).toList(),
                       ),
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30.0),
+                    child: Stack(
+                      children: [
+                        ColorFiltered(
+                          colorFilter: ColorFilter.mode(
+                            const Color(0xFF000000).withOpacity(0.2),
+                            BlendMode.srcATop,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(25.0),
+                            child: Image.asset(
+                              "assets/images/flowers.jpeg",
+                              width: MediaQuery.of(context).size.width,
+                              height: 400.0,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 20.0,
+                          left: 20.0,
+                          right: 20.0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 6.0,
+                                  horizontal: 10.0,
+                                ),
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xFF494B45).withOpacity(0.7),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+
+                                // Location icon and text in row
+                                child: Row(
+                                  children: [
+                                    // Location icon
+                                    const Icon(
+                                      Icons.location_on_rounded,
+                                      color: Color(0xFFF6C00A),
+                                      size: 20.0,
+                                    ),
+
+                                    // Location text
+                                    Text(
+                                      'Paris, France',
+                                      style: GoogleFonts.inter(
+                                        color: const Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 6.0,
+                                  horizontal: 10.0,
+                                ),
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xFF494B45).withOpacity(0.7),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      color: Color(0xFFF6C00A),
+                                      size: 20.0,
+                                    ),
+
+                                    // Rating here
+                                    Text(
+                                      '4.8',
+                                      style: GoogleFonts.inter(
+                                        color: const Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 14.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0.0,
+                          left: 20.0,
+                          right: 20.0,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Icon(
+                                Icons.location_on_rounded,
+                                color: Color(0xFFFFFFFF),
+                                size: 12.0,
+                              ),
+                              Text(
+                                'ai',
+                                style: GoogleFonts.inter(
+                                  fontSize: 28.0,
+                                  fontWeight: FontWeight.w800,
+                                  color: const Color(0xFFFFFFFF),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
 
