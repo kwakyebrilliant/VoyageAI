@@ -3,7 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class DetailScreen extends StatelessWidget {
   final String bookmark;
-  const DetailScreen({super.key, required this.bookmark});
+  DetailScreen({super.key, required this.bookmark});
+
+  final List<Map<String, String>> placeData = [
+    {'location': 'London', 'image': 'assets/images/cruise.jpeg'},
+    {'location': 'Paris, France', 'image': 'assets/images/mountain.jpeg'},
+    {'location': 'Bali', 'image': 'assets/images/place.jpeg'},
+    {'location': 'Lesotho', 'image': 'assets/images/flowers.jpeg'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -135,29 +142,88 @@ class DetailScreen extends StatelessWidget {
                   // Header text
                   RichText(
                     text: TextSpan(
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         height: 1.1,
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'For your 3 days experience to \n',
-                          style: GoogleFonts.poppins(
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.w600,
+                          text: '3 Days \n',
+                          style: GoogleFonts.inter(
+                            fontSize: 40.0,
+                            fontWeight: FontWeight.w800,
+                            color: const Color(0xFF000000),
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Experience at\n',
+                          style: GoogleFonts.inter(
+                            fontSize: 40.0,
+                            fontWeight: FontWeight.w800,
                             color: const Color(0xFF000000),
                           ),
                         ),
                         TextSpan(
                           text: 'Paris, France',
-                          style: GoogleFonts.poppins(
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.w600,
+                          style: GoogleFonts.inter(
+                            fontSize: 40.0,
+                            fontWeight: FontWeight.w800,
                             color: const Color(0xFFF6C00A),
                           ),
                         ),
                       ],
                     ),
                   ),
+
+                  // Place data here
+                  const SizedBox(height: 30.0),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: placeData.map((place) {
+                        return Container(
+                          padding: const EdgeInsets.all(3.3),
+                          margin: const EdgeInsets.only(right: 10.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            border: Border.all(
+                              color: const Color(0xFFF6C00A),
+                              width: 2.0,
+                            ),
+                          ),
+                          child: Container(
+                            height: 130.0,
+                            width: 90.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  place['image']!,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  bottom: 0.0,
+                                  child: Text(
+                                    place['location']!,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xFF494B45),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+
+                  const SizedBox(height: 20.0),
                   Text(
                     bookmark,
                     style: const TextStyle(
