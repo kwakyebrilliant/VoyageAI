@@ -242,6 +242,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
 
+                  // Padding around big image
                   Padding(
                     padding: const EdgeInsets.only(top: 30.0),
                     child: Stack(
