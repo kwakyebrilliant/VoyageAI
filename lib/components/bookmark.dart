@@ -289,27 +289,42 @@ class _BookmarkState extends State<Bookmark> {
                                 ),
 
                                 // Budget richtext
-                                RichText(
-                                  text: TextSpan(
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: '\$100.',
-                                        style: GoogleFonts.inter(
-                                          fontSize: 30.0,
-                                          fontWeight: FontWeight.w600,
-                                          color: const Color(0xFFFFFFFF),
-                                        ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // Budget text
+                                    Text(
+                                      'Budget from',
+                                      style: GoogleFonts.inter(
+                                        color: const Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 13.0,
                                       ),
-                                      TextSpan(
-                                        text: '72',
-                                        style: GoogleFonts.inter(
-                                          fontSize: 13.0,
-                                          fontWeight: FontWeight.w400,
-                                          color: const Color(0xFFFFFFFF),
-                                        ),
+                                    ),
+
+                                    RichText(
+                                      text: TextSpan(
+                                        children: <TextSpan>[
+                                          TextSpan(
+                                            text: '\$100.',
+                                            style: GoogleFonts.inter(
+                                              fontSize: 30.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: const Color(0xFFFFFFFF),
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: '72',
+                                            style: GoogleFonts.inter(
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.w400,
+                                              color: const Color(0xFFFFFFFF),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),

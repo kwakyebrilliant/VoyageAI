@@ -255,7 +255,7 @@ class DetailScreen extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(25.0),
                             child: Image.asset(
-                              "assets/images/flowers.jpeg",
+                              "assets/images/paris.jpg",
                               width: MediaQuery.of(context).size.width,
                               height: 400.0,
                               fit: BoxFit.cover,
