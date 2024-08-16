@@ -7,7 +7,8 @@ class DetailScreen extends StatelessWidget {
 
   final List<Map<String, String>> placeData = [
     {'location': 'London', 'image': 'assets/images/cruise.jpeg'},
-    {'location': 'Paris, France', 'image': 'assets/images/mountain.jpeg'},
+    {'location': 'Paris, France', 'image': 'assets/images/paris.jpg'},
+    {'location': 'Switzerland', 'image': 'assets/images/mountain.jpeg'},
     {'location': 'Bali', 'image': 'assets/images/place.jpeg'},
     {'location': 'Lesotho', 'image': 'assets/images/flowers.jpeg'},
   ];
