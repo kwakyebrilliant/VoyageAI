@@ -17,7 +17,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
-      // Body here
+      // CustomScrollView here
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
