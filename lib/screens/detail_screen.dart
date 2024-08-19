@@ -20,7 +20,7 @@ class DetailScreen extends StatelessWidget {
       // CustomScrollView here
       body: CustomScrollView(
         slivers: [
-          // Appbar
+          // Appbar here
           SliverAppBar(
             backgroundColor: const Color(0xFFFFFFFF),
             flexibleSpace: FlexibleSpaceBar(
