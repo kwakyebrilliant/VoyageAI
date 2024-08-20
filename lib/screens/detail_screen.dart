@@ -45,7 +45,7 @@ class DetailScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Location icon
+                    // Location icon here
                     const Icon(
                       Icons.location_on_rounded,
                       color: Color(0xFFF6C00A),
