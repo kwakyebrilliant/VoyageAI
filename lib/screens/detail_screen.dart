@@ -142,7 +142,7 @@ class DetailScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // RichText as header text
+                  // RichText as header text here
                   RichText(
                     text: TextSpan(
                       style: GoogleFonts.inter(
