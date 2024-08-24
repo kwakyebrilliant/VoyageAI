@@ -28,6 +28,8 @@ class _InputPageState extends State<InputPage> {
   double _minBudget = 0;
   double _maxBudget = 1000;
 
+  int _numberOfDays = 0;
+
   final String _apiKey = '';
 
   void _showCountryPicker() {
@@ -297,6 +299,89 @@ class _InputPageState extends State<InputPage> {
                           fontWeight: FontWeight.w500,
                           color: const Color(0xFF000000),
                         ),
+                      ),
+
+                      // Row for minus button, number of days, and plus button
+                      Row(
+                        children: [
+                          // Minus button
+                          Container(
+                            height: 28.0,
+                            width: 28.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFFFFFF),
+                              shape: BoxShape.rectangle,
+                              border: Border.all(
+                                color: const Color(0xFFF6C00A),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Center(
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(
+                                  Icons.remove,
+                                  color: Color(0xFFF6C00A),
+                                  size: 18.0,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    if (_numberOfDays > 0) {
+                                      _numberOfDays--;
+                                    }
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+
+                          // Display number of days in padding
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+
+                            // Display number of days
+                            child: Text(
+                              '$_numberOfDays',
+                              style: GoogleFonts.inter(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                                color: const Color(0xFF494B45),
+                              ),
+                            ),
+                          ),
+
+                          // Plus button
+                          Container(
+                            height: 28.0,
+                            width: 28.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFFFFFF),
+                              shape: BoxShape.rectangle,
+                              border: Border.all(
+                                color: const Color(0xFFF6C00A),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Center(
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(
+                                  Icons.add,
+                                  color: Color(0xFFF6C00A),
+                                  size: 18.0,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _numberOfDays++;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
