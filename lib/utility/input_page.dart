@@ -281,6 +281,27 @@ class _InputPageState extends State<InputPage> {
                   ),
                 ),
 
+                // Padding around days
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+
+                  // Row for days text and number of days selection
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // days text
+                      Text(
+                        'NUMBER OF DAYS',
+                        style: GoogleFonts.roboto(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF000000),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
                 // Padding around budget
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
