@@ -74,7 +74,7 @@ class _InputPageState extends State<InputPage> {
           left: 10.0,
           right: 10.0,
 
-          // Container for forms here
+          // Container for forms
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 10.0,
