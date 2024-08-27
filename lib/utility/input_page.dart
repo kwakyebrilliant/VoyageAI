@@ -68,7 +68,7 @@ class _InputPageState extends State<InputPage> {
     // Stack for all content
     return Stack(
       children: [
-        // Container positioned at the top here
+        // Container positioned at the top
         Positioned(
           top: 0.0,
           left: 10.0,
