@@ -185,7 +185,7 @@ class DetailScreen extends StatelessWidget {
                       child: Row(
                         children: placeData.map((place) {
                           return Container(
-                            padding: const EdgeInsets.all(3.3),
+                            padding: const EdgeInsets.all(3.31),
                             margin: const EdgeInsets.only(right: 7.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30.0),
