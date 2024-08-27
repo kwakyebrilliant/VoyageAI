@@ -177,7 +177,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
 
-                  // Place data
+                  // Place data over here
                   Padding(
                     padding: const EdgeInsets.only(top: 30.0),
                     child: SingleChildScrollView(
