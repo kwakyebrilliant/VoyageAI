@@ -348,12 +348,15 @@ class DetailScreen extends StatelessWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Image.asset(
-                                    "assets/images/map_vector.png",
-                                    height: 150.0,
-                                    width:
-                                        MediaQuery.of(context).size.width / 2,
-                                    fit: BoxFit.cover,
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    child: Image.asset(
+                                      "assets/images/map_vector.png",
+                                      height: 150.0,
+                                      width:
+                                          MediaQuery.of(context).size.width / 2,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ],
                               ),
