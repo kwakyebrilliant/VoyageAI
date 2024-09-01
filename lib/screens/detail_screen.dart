@@ -363,7 +363,7 @@ class DetailScreen extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  // Distance from you text
+                                  // Distance from you text here
                                   Text(
                                     'Distance from you',
                                     style: GoogleFonts.inter(
