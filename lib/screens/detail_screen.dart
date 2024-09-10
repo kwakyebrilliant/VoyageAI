@@ -410,27 +410,38 @@ class DetailScreen extends StatelessWidget {
                                   // Call row in a paddding
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                      top: 10.0,
+                                      top: 40.0,
                                       bottom: 5.0,
                                     ),
 
-                                    // Rating row
+                                    // Call row
                                     child: Row(
                                       children: [
-                                        const Icon(
-                                          Icons.star,
-                                          color: Color(0xFFF6C00A),
-                                          size: 20.0,
+                                        // Call icon in container
+                                        Container(
+                                          padding: const EdgeInsets.all(5.0),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            color: const Color(0xFFF6C00A),
+                                          ),
+
+                                          // Call icon
+                                          child: const Icon(
+                                            Icons.call_outlined,
+                                            color: Color(0xFFFFFFFF),
+                                            size: 28.0,
+                                          ),
                                         ),
 
-                                        // Rating here
-                                        Text(
-                                          '4.8 Rating',
-                                          style: GoogleFonts.inter(
-                                            color: const Color(0xFFFFFFFF),
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 14.0,
-                                          ),
+                                        SizedBox(
+                                          width: 45.0,
+                                        ),
+
+                                        Icon(
+                                          Icons.call_outlined,
+                                          color: Color(0xFFFFFFFF),
+                                          size: 28.0,
                                         ),
                                       ],
                                     ),
