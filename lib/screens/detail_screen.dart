@@ -434,14 +434,25 @@ class DetailScreen extends StatelessWidget {
                                           ),
                                         ),
 
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 45.0,
                                         ),
 
-                                        Icon(
-                                          Icons.call_outlined,
-                                          color: Color(0xFFFFFFFF),
-                                          size: 28.0,
+                                        // Call icon in container
+                                        Container(
+                                          padding: const EdgeInsets.all(5.0),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                            color: const Color(0xFFF6C00A),
+                                          ),
+
+                                          // Call icon
+                                          child: const Icon(
+                                            Icons.call_outlined,
+                                            color: Color(0xFFFFFFFF),
+                                            size: 28.0,
+                                          ),
                                         ),
                                       ],
                                     ),
