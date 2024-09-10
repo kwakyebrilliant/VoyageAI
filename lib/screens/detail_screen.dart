@@ -348,14 +348,24 @@ class DetailScreen extends StatelessWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    child: Image.asset(
-                                      "assets/images/map_vector.png",
-                                      height: 150.0,
-                                      width:
-                                          MediaQuery.of(context).size.width / 2,
-                                      fit: BoxFit.cover,
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(25.0),
+                                      border: Border.all(
+                                        color: const Color(0xFFF6C00A),
+                                        width: 0.8,
+                                      ),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(25.0),
+                                      child: Image.asset(
+                                        "assets/images/map_vector.png",
+                                        height: 150.0,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                2,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -397,7 +407,7 @@ class DetailScreen extends StatelessWidget {
                                     ),
                                   ),
 
-                                  // Rating rown in a paddding
+                                  // Call row in a paddding
                                   Padding(
                                     padding: const EdgeInsets.only(
                                       top: 10.0,
