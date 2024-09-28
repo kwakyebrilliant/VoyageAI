@@ -10,7 +10,7 @@ class ProceedPage extends StatefulWidget {
 }
 
 class _ProceedPageState extends State<ProceedPage> {
-  // Genre list
+  // Interest list
   final List<String> interests = [
     'Cultural Heritage',
     'Adventure Sports',
@@ -29,7 +29,7 @@ class _ProceedPageState extends State<ProceedPage> {
     'Family-Friendly Activities',
   ];
 
-  // Selected genres list
+  // Selected interest list
   final Set<String> _selectedInterests = {};
 
   @override
